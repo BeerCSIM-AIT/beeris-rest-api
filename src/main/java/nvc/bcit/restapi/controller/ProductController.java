@@ -61,15 +61,23 @@ public class ProductController {
     
     @PutMapping("/{id}")
     public ResponseEntity<Object> updateProduct(@PathVariable String id,@RequestBody Product product){
+        // ต้องการ ทุกฟิลด์ของ product 
+
+        // Product currentProduct = productService.findById(id).get();
+        // if(product.getName()!=null)
+        //     currentProduct.setName(product.getName());
+        // if(product.getPrice()!=null)
+        //     currentProduct.setPrice(product.getPrice());
+        // if(product.getUnit_in_stock()!=null)
+        //     currentProduct.setUnit_in_stock(product.getUnit_in_stock());
+        // if(product.getCreatedAt()!=null)
+        //     currentProduct.setCreatedAt(product.getCreatedAt()); 
+               
         Product currentProduct = productService.findById(id).get();
-        if(product.getName()!=null)
-            currentProduct.setName(product.getName());
-        if(product.getPrice()!=null)
-            currentProduct.setPrice(product.getPrice());
-        if(product.getUnit_in_stock()!=null)
-            currentProduct.setUnit_in_stock(product.getUnit_in_stock());
-        if(product.getCreatedAt()!=null)
-            currentProduct.setCreatedAt(product.getCreatedAt());        
+        currentProduct.setName(product.getName());
+        currentProduct.setPrice(product.getPrice());
+        currentProduct.setUnit_in_stock(product.getUnit_in_stock());
+        currentProduct.setCreatedAt(product.getCreatedAt()); 
 
         HashMap<String, Object> map = new HashMap<>();
         map.put("msg", "Update OK");
