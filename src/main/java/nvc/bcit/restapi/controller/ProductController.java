@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -72,7 +73,7 @@ public class ProductController {
         //     currentProduct.setUnit_in_stock(product.getUnit_in_stock());
         // if(product.getCreatedAt()!=null)
         //     currentProduct.setCreatedAt(product.getCreatedAt()); 
-               
+
         Product currentProduct = productService.findById(id).get();
         currentProduct.setName(product.getName());
         currentProduct.setPrice(product.getPrice());
